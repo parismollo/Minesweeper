@@ -81,6 +81,10 @@ public class Plateau{
 		return this.mines;
 	}
 
+	public int[][] getAdja(){
+		return this.adja;
+	}
+
 	private int getRandomNumber(int min, int max) {
 	    Random random = new Random();
 	    return random.nextInt(max - min) + min;
@@ -123,4 +127,35 @@ public class Plateau{
 			}while(mine_place);
 		} 
 	}
+
+	public void calculeAdjacence(){
+		for(int i=1; i<=this.hauteur; i++){
+			for(int j=1; j<=this.largeur; j++){
+				this.adja[i][j] = count_adj_horizontal_vertical(i, j);
+				this.adja[i][j] += count_adj_diagonal(i, j);
+			}
+		}
+	}
+
+	private int count_adj_horizontal_vertical(int i, int j){
+		int counter = 0;
+		counter += (this.mines[i-1][j]) ? 1 : 0;
+		counter += (this.mines[i][j+1]) ? 1 : 0;
+		counter += (this.mines[i+1][j]) ? 1 : 0;
+		counter += (this.mines[i][j-1]) ? 1 : 0;
+
+		return counter;
+	}
+
+	private int count_adj_diagonal(int i, int j){
+		int counter = 0;
+		counter += (this.mines[i-1][j-1]) ? 1 : 0;
+		counter += (this.mines[i-1][j+1]) ? 1 : 0;
+		counter += (this.mines[i+1][j+1]) ? 1 : 0;
+		counter += (this.mines[i+1][j-1]) ? 1 : 0;
+
+		return counter;
+	}
+
+
 }

@@ -12,3 +12,6 @@ class Lanceur{
 ## 3.2
 - Ok
 ## 3.3
+- Ok
+## 3.4
+
