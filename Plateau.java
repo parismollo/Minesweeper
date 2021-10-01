@@ -31,9 +31,17 @@ public class Plateau{
 	public static void helper_display(int t[][]){
 		System.out.print("[");
 		for(int i=0; i<t.length; i++){
-			System.out.print("[");
+			if (i!=0){
+				System.out.print(" [");
+			}else{
+				System.out.print("[");
+			}
 			for(int j=0; j<t[i].length; j++){
-				System.out.print(t[i][j]);
+				if (j == t[i].length-1){
+					System.out.print(t[i][j]);
+				}else{
+					System.out.print(t[i][j]+", ");
+				}
 			}
 			System.out.print("]");
 			if (i!=t.length-1){
@@ -45,9 +53,17 @@ public class Plateau{
 	public static void helper_display(boolean t[][]){
 		System.out.print("[");
 		for(int i=0; i<t.length; i++){
-			System.out.print("[");
+			if (i!=0){
+				System.out.print(" [");
+			}else{
+				System.out.print("[");
+			}
 			for(int j=0; j<t[i].length; j++){
-				System.out.print(t[i][j]);
+				if (j == t[i].length-1){
+					System.out.print(t[i][j]);
+				}else{
+					System.out.print(t[i][j]+", ");
+				}
 			}
 			System.out.print("]");
 			if (i!=t.length-1){

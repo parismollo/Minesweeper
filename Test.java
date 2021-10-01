@@ -1,6 +1,6 @@
 public class Test{
 	public static void main(String args[]){
-		// display_test();
+		display_test();
 		display_mines_test();
 	}
 
@@ -14,7 +14,7 @@ public class Test{
 	}
 	public static void display_mines_test(){
 		System.out.println("----------#2 Display Mines Test----------");
-		Plateau p = new Plateau(2, 2, 2);
+		Plateau p = new Plateau(2, 2, 1);
 		Plateau.helper_display(p.getMines());
 		System.out.println();
 		System.out.println();
