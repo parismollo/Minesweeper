@@ -4,7 +4,8 @@ public class Test{
 		// display_mines_test();
 		// test_adjance();
 		// affiche_tout_test();
-		test_revele_case();
+		// test_revele_case();
+		// test_drapeau();
 
 	}
 
@@ -58,6 +59,14 @@ public class Test{
 		Plateau.helper_display(p.getEtats());
 		System.out.println("\n");
 		Plateau.helper_display(p.getMines());
+	}
 
+	public static void test_drapeau(){
+		Plateau p = new Plateau(4, 4, 2);
+		p.afficheTout();
+		p.drapeauCase(1, 1);
+		p.afficheTout();
+		System.out.println();
+		Plateau.helper_display(p.getEtats());
 	}
 }

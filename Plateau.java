@@ -235,11 +235,14 @@ public class Plateau{
 						revelerCase(i-1, j+1);
 						revelerCase(i+1, j+1);
 						revelerCase(i+1, j-1);
+					break;
 					}
 				case 1:
 					System.out.println("Cette case contient un drapeau!");
+					break;
 				case 2:
 					System.out.println("Cette case est deja revelee!");
+					break;
 			}
 		}else{
 			System.out.println("Not valid (i, j)");
@@ -251,5 +254,20 @@ public class Plateau{
 			return true;
 		}
 		return false;
+	}
+	public void drapeauCase(int i, int j){
+		switch(this.etats[i][j]){
+			case 0:
+				this.etats[i][j] = 1;
+				this.nbDrapeaux++;
+				break;
+			case 1:
+				this.etats[i][j] = 0;
+				this.nbDrapeaux--;
+				break;
+			case 2:
+				System.out.println("Case deja revelee");
+
+		}	
 	}
 }

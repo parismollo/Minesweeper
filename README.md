@@ -21,3 +21,10 @@ class Lanceur{
 - Ok with bug on large tables
 ## 3.7 
 - Ok
+## 3.8
+- Ok
+## 3.9
+- Ok, I think....
+## 3.10
+- Ok
+## 3.11
