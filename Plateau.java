@@ -319,4 +319,25 @@ public class Plateau{
 		System.out.println("    *    "+nbMinesCourantCachee+"  /  "+this.nbDrapeaux+"       *");
 		System.out.println("    ********************");	
 	}
+	public boolean jeuPerdu(){ 
+		for(int i=1; i<this.hauteur; i++){
+			for(int j=1; j<this.largeur; j++){
+				if(this.mines[i][j]==true && this.etats[i][j]==2){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean jeuGagne(){
+		for(int i=1; i<this.hauteur; i++){
+			for(int j=1; j<this.largeur; j++){
+				if(this.mines[i][j]==false && this.etats[i][j] != 2){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }

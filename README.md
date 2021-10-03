@@ -28,3 +28,6 @@ class Lanceur{
 ## 3.10
 - Ok
 ## 3.11
+- Ok
+## 3.12
+- Ok, à tester...
