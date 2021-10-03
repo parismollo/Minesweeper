@@ -161,6 +161,7 @@ public class Plateau{
 
 		return counter;
 	}
+	// [TODO]: Fix bug on large tables mismatch
 	public void afficheTout(){
 		int alpha_counter = 0;
 		String alpha[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
@@ -185,7 +186,7 @@ public class Plateau{
 
 	private void afficheToutIntroduction(){
 		System.out.println("    ********************");
-		System.out.println("    * Mines / Drapeaux *");
+		System.out.println("    * Mines  / Drapeaux *");
 		System.out.println("    *    "+this.nbMines+"  /  "+this.nbDrapeaux+"       *");
 		System.out.println("    ********************");	
 	}
@@ -201,10 +202,54 @@ public class Plateau{
 		for(int i=0; i<s.length()+3;i++){
 			System.out.print("-");
 		}
-		// System.out.print("---");
-		// for(int k=0; k<this.largeur;k++){
-		// 	System.out.print("-----");
+	}
 
-		// }
+	// [TODO]: USE SWITCH CASE
+	// public void revelerCase(int i, int j){
+	// 	if(i>=1 && i<=this.hauteur && j>=1 && j<=this.largeur){
+	// 		if (this.etats[i][j] == 1){
+	// 			System.out.print("Cette case contient un drapeau!");
+	// 		}
+	// 		if (this.etats[i][j] == 2){
+	// 			System.out.print("Cette case est deja revelee!");
+	// 		}
+	// 		if (this.etats[i][j] == 0){
+	// 			this.etats[i][j] = 2;
+	// 		}	
+	// 	}else{
+	// 		System.out.println("Please Enter valid cordinates!");
+	// 	}
+	// }
+	public void revelerCase(int i, int j){
+		// Check if (i, j) are in the game limits
+		if (isInGame(i, j)){
+			switch (this.etats[i][j]){
+				case 0:
+					this.etats[i][j] = 2;
+					if (this.adja[i][j] == 0){
+						revelerCase(i-1, j);
+						revelerCase(i, j+1);
+						revelerCase(i+1, j);
+						revelerCase(i, j-1);
+						revelerCase(i-1, j-1);
+						revelerCase(i-1, j+1);
+						revelerCase(i+1, j+1);
+						revelerCase(i+1, j-1);
+					}
+				case 1:
+					System.out.println("Cette case contient un drapeau!");
+				case 2:
+					System.out.println("Cette case est deja revelee!");
+			}
+		}else{
+			System.out.println("Not valid (i, j)");
+		}
+
+	}
+	private boolean isInGame(int i, int j){ // Check if (i, j) are valid
+		if(i>=1 && i<=this.hauteur && j>=1 && j<=this.largeur){
+			return true;
+		}
+		return false;
 	}
 }

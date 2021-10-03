@@ -1,20 +1,21 @@
 public class Test{
 	public static void main(String args[]){
-		display_test();
+		// display_test();
 		// display_mines_test();
 		// test_adjance();
-		affiche_tout_test();
+		// affiche_tout_test();
+		test_revele_case();
 
 	}
 
 
-	public static void display_test(){
-		System.out.println("----------#1 Display Test----------");
-		Plateau p = new Plateau(5, 5, 1);
-		Plateau.helper_display(p.getEtats());
-		System.out.println();
-		System.out.println("-----------------------------------");
-	}
+	// public static void display_test(){
+	// 	System.out.println("----------#1 Display Test----------");
+	// 	Plateau p = new Plateau(5, 5, 1);
+	// 	Plateau.helper_display(p.getEtats());
+	// 	System.out.println();
+	// 	System.out.println("-----------------------------------");
+	// }
 	// public static void display_mines_test(){
 	// 	System.out.println("----------#2 Display Mines Test----------");
 	// 	Plateau p = new Plateau(2, 2, 4);
@@ -43,15 +44,20 @@ public class Test{
 	// 	System.out.println("-----------------------------------");
 	// }
 
-	public static void affiche_tout_test(){
-		Plateau p = new Plateau(8, 8, 10);
-		p.afficheTout();
-		System.out.println();
-		Plateau p2 = new Plateau(4, 4, 10);
-		p2.afficheTout();
-		System.out.println();
-		Plateau p3 = new Plateau(5, 12, 10);
-		p3.afficheTout();
-		System.out.println();
+	// public static void affiche_tout_test(){
+	// 	Plateau p = new Plateau(8, 8, 10);
+	// 	p.afficheTout();
+	// 	System.out.println();
+	// }
+
+	public static void test_revele_case(){
+		Plateau p = new Plateau(4, 4, 2);
+		Plateau.helper_display(p.getEtats());
+		System.out.println("\n");
+		p.revelerCase(4, 4);
+		Plateau.helper_display(p.getEtats());
+		System.out.println("\n");
+		Plateau.helper_display(p.getMines());
+
 	}
 }
