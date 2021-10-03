@@ -26,6 +26,11 @@ public class Plateau{
 		this.mines = new boolean[ha+2][la+2];
 		this.etats = new int[ha+2][la+2];
 		this.adja = new int[ha+2][la+2];
+
+		ajouteMinesAlea();
+		calculeAdjacence();
+
+
 	}
 	// methodes
 	public static void helper_display(int t[][]){
@@ -99,7 +104,7 @@ public class Plateau{
 		}
 	}
 
-	public void ajouteMinesAlea(){
+	private void ajouteMinesAlea(){
 		
 		// 1. Ajoute mines de façon aléatoire au tableau : Il faut ajouter #'nbMines' au tableau
 		// 2. Attention
@@ -128,7 +133,7 @@ public class Plateau{
 		} 
 	}
 
-	public void calculeAdjacence(){
+	private void calculeAdjacence(){
 		for(int i=1; i<=this.hauteur; i++){
 			for(int j=1; j<=this.largeur; j++){
 				this.adja[i][j] = count_adj_horizontal_vertical(i, j);
@@ -156,6 +161,50 @@ public class Plateau{
 
 		return counter;
 	}
+	public void afficheTout(){
+		int alpha_counter = 0;
+		String alpha[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+		afficheToutIntroduction();
+		afficheToutFirstLine();
+		afficheToutContenu(alpha);
+	}
 
+	private void afficheToutContenu(String[] alpha){
+		for(int i=1; i<=this.hauteur; i++){
+			System.out.println();
+			System.out.print(alpha[i-1]+" | ");
+			for(int j=1; j<=this.largeur;j++){
+				if(this.mines[i][j]){
+					System.out.print(" * ");
+				}else{
+					System.out.print(" "+this.adja[i][j]+" ");
+				}
+			}
+		}
+	}
 
+	private void afficheToutIntroduction(){
+		System.out.println("    ********************");
+		System.out.println("    * Mines / Drapeaux *");
+		System.out.println("    *    "+this.nbMines+"  /  "+this.nbDrapeaux+"       *");
+		System.out.println("    ********************");	
+	}
+
+	private void afficheToutFirstLine(){
+		String s = "";
+		System.out.print("    ");
+		for(int k=1; k<=this.largeur;k++){
+			s +=" "+k+" ";
+			System.out.print(" "+k+" ");
+		}
+		System.out.println();
+		for(int i=0; i<s.length()+3;i++){
+			System.out.print("-");
+		}
+		// System.out.print("---");
+		// for(int k=0; k<this.largeur;k++){
+		// 	System.out.print("-----");
+
+		// }
+	}
 }
