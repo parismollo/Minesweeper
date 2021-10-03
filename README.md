@@ -18,4 +18,6 @@ class Lanceur{
 ## 3.5
 - Ok
 ## 3.6
-
+- Ok with bug on large tables
+## 3.7 
+- Ok
