@@ -270,4 +270,53 @@ public class Plateau{
 
 		}	
 	}
+
+	public void afficheCourant(){
+		int alpha_counter = 0;
+		String alpha[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+		afficheCourantIntroduction();
+		afficheToutFirstLine();
+		afficheCourantContenu(alpha);
+	}
+
+	private void afficheCourantContenu(String[] alpha){
+		for(int i=1; i<=this.hauteur; i++){
+			System.out.println();
+			System.out.print(alpha[i-1]+" | ");
+			for(int j=1; j<=this.largeur;j++){
+				// 1. Si etat == 0 -> .
+				// 2. Si  etat == 1 -> ?
+				// 3. Si etat == 2 -> adja
+				switch(this.etats[i][j]){
+					case 0:
+						System.out.print(" . ");
+						break;
+					case 1:
+						System.out.print(" ? ");
+						break;
+					case 2:
+						System.out.print(" "+this.adja[i][j]+" ");
+				}
+				// if(this.mines[i][j]){
+				// 	System.out.print(" * ");
+				// }else{
+				// 	System.out.print(" "+this.adja[i][j]+" ");
+				// }
+			}
+		}
+	}
+	private void afficheCourantIntroduction(){
+		int nbMinesCourantCachee = 0;
+		for(int i=1; i<=this.hauteur; i++){
+			for(int j=1; j<=this.largeur; j++){
+				if(this.etats[i][j] == 0 && this.mines[i][j] == true){
+					nbMinesCourantCachee++;
+				}
+			}
+		}
+		System.out.println("    ********************");
+		System.out.println("    * Mines / Drapeaux *");
+		System.out.println("    *    "+nbMinesCourantCachee+"  /  "+this.nbDrapeaux+"       *");
+		System.out.println("    ********************");	
+	}
 }

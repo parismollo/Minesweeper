@@ -6,6 +6,7 @@ public class Test{
 		// affiche_tout_test();
 		// test_revele_case();
 		// test_drapeau();
+		test_affiche_courant();
 
 	}
 
@@ -68,5 +69,16 @@ public class Test{
 		p.afficheTout();
 		System.out.println();
 		Plateau.helper_display(p.getEtats());
+	}
+	public static void test_affiche_courant(){
+		Plateau p = new Plateau(4, 4, 2);
+		p.afficheCourant();
+		System.out.println("\n");
+		p.revelerCase(1,1);
+		p.afficheCourant();
+		System.out.println("\n");
+		p.drapeauCase(1, 3);
+		p.afficheCourant();
+
 	}
 }
