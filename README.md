@@ -30,4 +30,13 @@ class Lanceur{
 ## 3.11
 - Ok
 ## 3.12
-- Ok, à tester...
+- Ok, à tester
+## 3.13
+- Ok, à tester
+## 3.14
+- Ok, à tester
+## 3.15
+- Ok, à tester
+## 3.16
+- Ok
+## 3.17

@@ -235,10 +235,10 @@ public class Plateau{
 						revelerCase(i-1, j+1);
 						revelerCase(i+1, j+1);
 						revelerCase(i+1, j-1);
-					break;
 					}
+					break;
 				case 1:
-					System.out.println("Cette case contient un drapeau!");
+					System.out.println("Cette case contient un drapeau!!");
 					break;
 				case 2:
 					System.out.println("Cette case est deja revelee!");
@@ -295,7 +295,11 @@ public class Plateau{
 						System.out.print(" ? ");
 						break;
 					case 2:
-						System.out.print(" "+this.adja[i][j]+" ");
+						if (this.mines[i][j]){
+							System.out.print(" * ");
+						}else {
+							System.out.print(" "+this.adja[i][j]+" ");
+						}
 				}
 				// if(this.mines[i][j]){
 				// 	System.out.print(" * ");
@@ -320,8 +324,8 @@ public class Plateau{
 		System.out.println("    ********************");	
 	}
 	public boolean jeuPerdu(){ 
-		for(int i=1; i<this.hauteur; i++){
-			for(int j=1; j<this.largeur; j++){
+		for(int i=1; i<=this.hauteur; i++){
+			for(int j=1; j<=this.largeur; j++){
 				if(this.mines[i][j]==true && this.etats[i][j]==2){
 					return true;
 				}
@@ -331,8 +335,8 @@ public class Plateau{
 	}
 
 	public boolean jeuGagne(){
-		for(int i=1; i<this.hauteur; i++){
-			for(int j=1; j<this.largeur; j++){
+		for(int i=1; i<=this.hauteur; i++){
+			for(int j=1; j<=this.largeur; j++){
 				if(this.mines[i][j]==false && this.etats[i][j] != 2){
 					return false;
 				}
