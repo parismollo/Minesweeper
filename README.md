@@ -40,3 +40,6 @@ class Lanceur{
 ## 3.16
 - Ok
 ## 3.17
+- Ok
+## 3.18
+- Ok

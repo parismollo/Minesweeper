@@ -23,7 +23,7 @@ public class Joueur{
 			return true;
 		}
 		else if (s.equals("non") || s.equals("n") || s.equals("NON") || s.equals("N")){
-			return true;
+			return false;
 		}else{
 			return false;
 		}

@@ -10,11 +10,11 @@ public class Jeu{
 	public void jouer(){ // [TODO] rejouer? 
 		do{
 			this.plateau.afficheCourant();
-			System.out.println("\n");
+			System.out.println();
 			char a = this.joueur.demanderAction();
-			System.out.println("\n");
+			System.out.println();
 			int c[] = this.joueur.demanderCoordonnes();
-			System.out.println("\n");
+			System.out.println();
 			if(a=='r'){
 				this.plateau.revelerCase(c[0], c[1]);
 			}
